@@ -111,7 +111,7 @@ pipeline {
             echo ">>> Checking workspace content:"
             ls -la /workspace
             echo ">>> Checking folder target/ content:"
-            ls -la /workspace/target
+            ls -la /workspace/main-app/target
             echo ">>> Start Kaniko build"
             /kaniko/executor \
               --context=/workspace \
