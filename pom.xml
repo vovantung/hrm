@@ -10,7 +10,7 @@
     </parent>
     <groupId>txu</groupId>
     <artifactId>hrm</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>hrm</name>
     <description>hrm</description>
     <packaging>pom</packaging>
@@ -51,6 +51,18 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>txu.hrm.mainapp.MainAppApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>
