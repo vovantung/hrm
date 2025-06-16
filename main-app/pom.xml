@@ -10,7 +10,7 @@
     </parent>
     <groupId>txu</groupId>
     <artifactId>main-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>main-app</name>
     <description>main-app</description>
     <url/>
@@ -125,6 +125,7 @@
     </dependencies>
 
     <build>
+        <finalName>hrm</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
