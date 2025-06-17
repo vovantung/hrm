@@ -31,10 +31,12 @@ spec:
   selector:
     app: hrm
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 8080
       targetPort: 8080
   type: ClusterIP
+
 
 ---
 #apiVersion: v1
@@ -78,7 +80,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: hrm-servicemonitor
-  namespace: monitoring
+  namespace: monitoring # namespace của prometheus operator
   labels:
     release: monitoring
 spec:
@@ -87,12 +89,14 @@ spec:
       app: hrm
   namespaceSelector:
     matchNames:
-      - jenkins
+      - jenkins  # namespace của app backend
   endpoints:
-    - targetPort: 8080
+    - port: http
       path: /actuator/prometheus
       interval: 15s
       scheme: http
+      targetPort: 8080
+
 
 
 
