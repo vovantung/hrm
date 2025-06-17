@@ -23,19 +23,35 @@ spec:
       imagePullSecrets:
         - name: ecr-secret
 ---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: hrm
+#spec:
+#  selector:
+#    app: hrm
+#  ports:
+#    - name: http
+#      protocol: TCP
+#      port: 8080
+#      targetPort: 8080
+#  type: ClusterIP
+
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: hrm
+  namespace: jenkins
+  labels:
+    app: hrm   # Phải trùng với ServiceMonitor
 spec:
-  selector:
-    app: hrm
   ports:
-    - name: http
-      protocol: TCP
+    - name: http   # Phải trùng với ServiceMonitor endpoints.port
       port: 8080
       targetPort: 8080
-  type: ClusterIP
+  selector:
+    app: hrm
 
 
 ---
