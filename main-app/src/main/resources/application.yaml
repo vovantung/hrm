@@ -1,11 +1,9 @@
+# application.yaml
 management:
   endpoints:
     web:
       exposure:
-        include: health, info, prometheus
-  metrics:
-    export:
-      prometheus:
-        enabled: true
-server:
-  port: 8080
+        include: prometheus,health,info
+  endpoint:
+    prometheus:
+      enabled: true

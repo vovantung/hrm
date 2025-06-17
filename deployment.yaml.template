@@ -77,7 +77,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: backend-servicemonitor
+  name: hrm-servicemonitor
   namespace: monitoring
   labels:
     release: monitoring
@@ -87,9 +87,12 @@ spec:
       app: hrm
   namespaceSelector:
     matchNames:
-      - backend
+      - jenkins
   endpoints:
-    - port: http
+    - targetPort: 8080
       path: /actuator/prometheus
       interval: 15s
+      scheme: http
+
+
 
