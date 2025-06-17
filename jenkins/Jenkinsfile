@@ -141,7 +141,7 @@ pipeline {
       }
     }
 
-    stage('Test Deployment') {
+    stage('Deployment hrm to Kubernetes') {
       steps {
         container('kubectl') {
           script {
