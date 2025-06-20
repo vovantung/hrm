@@ -100,7 +100,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: servicemonitor-hrm
+  name: hrm-service-monitor
   namespace: monitoring # namespace của prometheus operator
   labels:
     release: monitoring
