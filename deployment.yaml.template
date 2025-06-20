@@ -76,12 +76,16 @@ metadata:
   namespace: backend
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    cert-manager.io/cluster-issuer: letsencrypt-http01
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - backend.txuapp.com
+      secretName: backend-tls
   rules:
-    - host: api.txuapp.com
+    - host: backend.txuapp.com
       http:
         paths:
           - path: /

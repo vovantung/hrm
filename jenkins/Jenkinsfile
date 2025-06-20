@@ -62,7 +62,6 @@ pipeline {
   environment {
     AWS_REGION = "ap-southeast-1"
     ECR_REGISTRY = "211125364313.dkr.ecr.ap-southeast-1.amazonaws.com"
-    IMAGE_NAME = "app1"
   }
 
   stages {
