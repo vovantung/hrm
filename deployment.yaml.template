@@ -112,6 +112,7 @@ spec:
     matchNames:
       - backend  # namespace của app backend
   endpoints:
+    - 
     - port: http
       path: /actuator/prometheus
       interval: 15s
