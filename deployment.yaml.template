@@ -101,22 +101,17 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: hrm-service-monitor
-  namespace: monitoring # namespace của prometheus operator
+  namespace: backend
   labels:
     release: monitoring
 spec:
   selector:
     matchLabels:
       app: hrm
-  namespaceSelector:
-    matchNames:
-      - backend  # namespace của app backend
   endpoints:
     - port: http
       path: /actuator/prometheus
       interval: 15s
       scheme: http
-
-
 
 
