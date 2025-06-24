@@ -21,6 +21,14 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: backend-logs
+              mountPath: /logs
+      volumes:
+        - name: backend-logs
+          hostPath:
+            path: /mnt/data/backend
+            type: DirectoryOrCreate
       imagePullSecrets:
         - name: ecr-secret
 ---
