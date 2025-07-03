@@ -30,7 +30,7 @@ spec:
             path: /mnt/data/backend
             type: DirectoryOrCreate
       imagePullSecrets:
-        - name: ecr-registry-secret
+        - name: ecr-secret
 ---
 #apiVersion: v1
 #kind: Service
