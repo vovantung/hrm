@@ -26,9 +26,9 @@ spec:
               mountPath: /logs
       volumes:
         - name: backend-logs
-          hostPath:
-            path: /mnt/data/backend
-            type: DirectoryOrCreate
+          nfs:
+            server: 192.168.98.150
+            path: /mnt/data/nfs/backend/hrm/logs
       imagePullSecrets:
         - name: ecr-secret
 ---
