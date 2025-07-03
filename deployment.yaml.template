@@ -30,7 +30,7 @@ spec:
             path: /mnt/data/backend
             type: DirectoryOrCreate
       imagePullSecrets:
-        - name: ecr-secret
+        - name: ecr-registry-secret
 ---
 #apiVersion: v1
 #kind: Service
@@ -61,7 +61,6 @@ spec:
       targetPort: 8080
   selector:
     app: hrm
-
 
 ---
 #apiVersion: v1
