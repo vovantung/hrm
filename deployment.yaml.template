@@ -26,7 +26,7 @@ spec:
               mountPath: /logs
           resources:
             requests:
-              cpu: "400m"
+              cpu: "600m"
             limits:
               cpu: "1200m"
       volumes:
@@ -48,7 +48,7 @@ spec:
     kind: Deployment
     name: hrm
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 2
   metrics:
     - type: Resource
       resource:
