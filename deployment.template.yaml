@@ -24,11 +24,11 @@ spec:
           volumeMounts:
             - name: backend-logs
               mountPath: /logs
-#          resources:
-#            requests:
-#              cpu: "1200m"
-#            limits:
-#              cpu: "1200m"
+          resources:
+            requests:
+              cpu: "1200m"
+            limits:
+              cpu: "1200m"
       volumes:
         - name: backend-logs
           nfs:
@@ -37,25 +37,25 @@ spec:
       imagePullSecrets:
         - name: ecr-secret
 ---
-#apiVersion: autoscaling/v2
-#kind: HorizontalPodAutoscaler
-#metadata:
-#  name: hrm
-#  namespace: backend
-#spec:
-#  scaleTargetRef:
-#    apiVersion: apps/v1
-#    kind: Deployment
-#    name: hrm
-#  minReplicas: 1
-#  maxReplicas: 5
-#  metrics:
-#    - type: Resource
-#      resource:
-#        name: cpu
-#        target:
-#          type: Utilization
-#          averageUtilization: 75
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hrm
+  namespace: backend
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hrm
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 75
 ---
 #apiVersion: v1
 #kind: Service
