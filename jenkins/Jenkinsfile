@@ -131,7 +131,7 @@ pipeline {
             sh '''
               APP_VERSION=$(cat /workspace/version.txt)
               echo $APP_VERSION
-              cp deployment.yaml.template deployment.yaml
+              cp deployment.template.yaml deployment.yaml
               sed -i "s/__VERSION__/$APP_VERSION/g" deployment.yaml
             '''
           }
