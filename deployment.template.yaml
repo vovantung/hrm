@@ -26,9 +26,9 @@ spec:
               mountPath: /logs
           resources:
             requests:
-              cpu: "1200m"
+              cpu: "1000m"
             limits:
-              cpu: "1200m"
+              cpu: "1000m"
       volumes:
         - name: backend-logs
           nfs:
@@ -48,7 +48,7 @@ spec:
     kind: Deployment
     name: hrm
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 3
   metrics:
     - type: Resource
       resource:
