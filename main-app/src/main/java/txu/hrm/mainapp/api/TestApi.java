@@ -10,7 +10,7 @@ import txu.common.exception.TxException;
 public class TestApi {
     @GetMapping(value = "/test")
     public String test() {
-        throw new TxException("test");
-//        return "test";
+//        throw new TxException("test");
+        return "test";
     }
 }
