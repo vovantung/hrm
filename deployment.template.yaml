@@ -124,6 +124,29 @@ spec:
             pathType: Prefix
             backend:
               service:
+                name: kong-kong-proxy
+                port:
+                  number: 80
+
+---
+# File: hrm-kong-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hrm-kong-ingress
+  namespace: backend
+  annotations:
+    konghq.com/strip-path: "true"
+spec:
+  ingressClassName: kong
+  rules:
+    - host: backend.txuapp.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
                 name: hrm
                 port:
                   number: 8080
