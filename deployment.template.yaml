@@ -48,7 +48,7 @@ spec:
     kind: Deployment
     name: hrm
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 4
   metrics:
     - type: Resource
       resource:
