@@ -124,12 +124,26 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: kong-kong-proxy
+                name: kong-proxy
                 port:
                   number: 80
 
 ---
-# File: hrm-kong-ingress.yaml
+# File: kong-proxy-externalname.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kong-proxy
+  namespace: backend
+spec:
+  type: ExternalName
+  externalName: kong-kong-proxy.kong.svc.cluster.local.
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -152,6 +166,7 @@ spec:
                   number: 8080
 
 ---
+
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
