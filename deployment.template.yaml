@@ -151,6 +151,7 @@ metadata:
   namespace: backend
   annotations:
     konghq.com/strip-path: "true"
+    konghq.com/plugins: jwt-auth   # 👈 Gắn plugin vào route
 spec:
   ingressClassName: kong
   rules:
