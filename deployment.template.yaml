@@ -144,28 +144,28 @@ spec:
       protocol: TCP
 
 ---
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: hrm-kong-ingress
-#  namespace: backend
-#  annotations:
-#    konghq.com/strip-path: "true"
-#    konghq.com/plugins: jwt-auth   # 👈 Gắn plugin vào route
-#    konghq.com/consumer: txu-iss
-#spec:
-#  ingressClassName: kong
-#  rules:
-#    - host: backend.txuapp.com
-#      http:
-#        paths:
-#          - path: /
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: hrm
-#                port:
-#                  number: 8080
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hrm-kong-ingress
+  namespace: backend
+  annotations:
+    konghq.com/strip-path: "true"
+    konghq.com/plugins: jwt-auth   # 👈 Gắn plugin vào route
+    konghq.com/consumer: txu-iss
+spec:
+  ingressClassName: kong
+  rules:
+    - host: backend.txuapp.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hrm
+                port:
+                  number: 8080
 
 ---
 
