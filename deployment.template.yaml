@@ -150,8 +150,9 @@ metadata:
   name: hrm-kong-ingress
   namespace: backend
   annotations:
-#    konghq.com/strip-path: "true"
+    konghq.com/strip-path: "true"
     konghq.com/plugins: jwt-auth   # 👈 Gắn plugin vào route
+    konghq.com/consumer: txu-iss
 spec:
   ingressClassName: kong
   rules:
