@@ -152,7 +152,7 @@ metadata:
   annotations:
     konghq.com/strip-path: "true"
     konghq.com/plugins: jwt-auth   # 👈 Gắn plugin vào route
-    konghq.com/consumer: txu-csm
+#    konghq.com/consumer: txu-csm
 spec:
   ingressClassName: kong
   rules:
