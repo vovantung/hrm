@@ -104,49 +104,6 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hrm
-  namespace: backend
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt-http01
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - backend.txuapp.com
-      secretName: hrm-tls
-  rules:
-    - host: backend.txuapp.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: kong-proxy-hrm
-                port:
-                  number: 80
-
----
-# File: kong-proxy-externalname.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: kong-proxy-hrm
-  namespace: backend
-spec:
-  type: ExternalName
-  externalName: kong-proxy.kong.svc.cluster.local.
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
   name: hrm-kong-ingress
   namespace: backend
   annotations:
