@@ -115,12 +115,12 @@ spec:
   tls:
     - hosts:
         - backend.txuapp.com
-      secretName: backend-tls
+      secretName: hrm-tls
   rules:
     - host: backend.txuapp.com
       http:
         paths:
-          - path: /hrm
+          - path: /
             pathType: Prefix
             backend:
               service:
