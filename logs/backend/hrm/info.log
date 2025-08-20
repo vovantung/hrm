@@ -29,3 +29,6 @@
 2025-08-20 21:04:24.301 INFO  [main] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2025-08-20 21:04:24.317 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
 2025-08-20 21:04:24.331 INFO  [main] txu.hrm.mainapp.MainAppApplication - Started MainAppApplication in 5.2 seconds (process running for 7.123)
+2025-08-20 21:05:26.023 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-20 21:05:26.023 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-20 21:05:26.025 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
