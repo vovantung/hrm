@@ -15,7 +15,6 @@ import java.security.NoSuchAlgorithmException;
 
 @Slf4j
 @RestController
-@RequestMapping("/account")
 @RequiredArgsConstructor
 public class AccountApi extends AbstractApi {
 
